@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Products</h5>
                     <p class="card-text">View and manage all products in our store.</p>
-                    <a href="products/product.php" class="btn btn-primary">View Our Products</a>
+                    <a href="front/products/products.php" class="btn btn-primary">View Our Products</a>
                 </div>
             </div>
         </div>

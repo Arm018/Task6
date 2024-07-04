@@ -1,9 +1,15 @@
 <?php
-require_once 'Controllers/ProductController.php';
+
 require_once 'admin/Controllers/AuthController.php';
 require_once 'admin/Models/Admin.php';
+require_once 'admin/Controllers/ProductController.php';
+require_once 'admin/Controllers/OrderController.php';
+require_once 'front/Controllers/FrontProductController.php';
+
 use admin\Controllers\AuthController;
-use controllers\ProductController;
+use Controllers\OrderController;
+use Controllers\ProductController;
+use Controllers\FrontProductController;
 
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $baseUri = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
@@ -11,13 +17,18 @@ $route = substr($requestUri, strlen($baseUri)) ?: '/';
 
 switch ($route) {
     case '/':
-        require_once 'views/home.php';
+        require_once 'front/views/home.php';
         break;
-    case '/products/product.php':
+    case '/eshop/admin/login':
+        $controller = new AuthController();
+        $admin = new \models\Admin();
+        $controller->login($admin);
+        break;
+    case '/admin/products/product.php':
         $controller = new ProductController();
         $controller->index();
         break;
-    case '/create':
+    case '/admin/create':
         $controller = new ProductController();
         $controller->create();
         break;
@@ -30,11 +41,42 @@ switch ($route) {
             echo '405 Method Not Allowed';
         }
         break;
-    case '/eshop/admin/login':
-        $controller = new AuthController();
-        $admin = new \models\Admin();
-        $controller->login($admin);
+    case '/update':
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $controller = new ProductController();
+            $controller->edit($_GET['id']);
+        }
         break;
+    case '/delete':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller = new ProductController();
+            $controller->delete($_POST['id']);
+        }
+        break;
+    case '/admin/edit':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller = new ProductController();
+            $controller->update();
+        }
+        break;
+    case '/admin/orders/orders.php':
+        $controller = new OrderController();
+        $controller->index();
+        break;
+    case '/admin/orders/show':
+        if (isset($_GET['id'])) {
+            $controller = new OrderController();
+            $controller->show($_GET['id']);
+        } else {
+            echo "Order ID not specified.";
+        }
+        break;
+    case '/front/products/products.php':
+        $controller = new FrontProductController();
+        $controller->index();
+        break;
+
+
 
     default:
         // header("HTTP/1.0 404 Not Found");

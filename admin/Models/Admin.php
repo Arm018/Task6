@@ -1,7 +1,7 @@
 <?php
 
 namespace models;
-
+require_once 'config/connect.php';
 use config\Database;
 use PDO;
 use PDOException;

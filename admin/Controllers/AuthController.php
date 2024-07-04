@@ -1,14 +1,12 @@
 <?php
 namespace admin\Controllers;
 use models\Admin;
-
-//require_once '../Models/Admin.php';
 class AuthController
 {
 
     public function login(Admin $admin)
     {
-
+        session_start();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
             $password = $_POST['password'];
