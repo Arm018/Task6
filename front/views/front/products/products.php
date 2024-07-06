@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Products</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -13,13 +14,14 @@
         <?php if (!empty($products)): ?>
             <?php foreach ($products as $product): ?>
                 <div class="col-md-4 mb-4">
-                    <div class="card">
+                    <div class="card" style="width: 340px">
                         <img src="../../<?= $product['image_path']; ?>" class="card-img-top" alt="<?= $product['name']; ?>" style="height: 300px; object-fit: cover;">
                         <div class="card-body">
                             <h5 class="card-title"><?= $product['name']; ?></h5>
-                            <p class="card-text"><?= $product['description']; ?></p>
                             <p class="card-text">Price: $<?= $product['price']; ?></p>
-                            <a href="/product_details.php?id=<?= $product['id']; ?>" class="btn btn-primary">View Details</a>
+                            <a href="product_details.php?id=<?= $product['id']; ?>" class="btn btn-outline-primary">View Details</a>
+                            <a href="checkout.php" class="btn btn-outline-secondary">Order</a>
+                            <button class="btn btn-success add-to-cart" data-id="<?= $product['id']; ?>">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -30,10 +32,10 @@
             </div>
         <?php endif; ?>
     </div>
+
+
 </div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

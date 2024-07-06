@@ -1,16 +1,28 @@
 <?php
-namespace Controllers;
 
-use models\FrontProduct;
+    namespace Controllers;
 
-require_once __DIR__ . '/../Models/FrontProduct.php';
+    use models\FrontProduct;
 
-class FrontProductController
-{
-    public function index()
+    require_once __DIR__ . '/../Models/FrontProduct.php';
+
+    class FrontProductController
     {
-        $productAll = new FrontProduct();
-        $products = $productAll->getProducts();
-        require_once __DIR__ . '/../views/front/products/products.php';
+        public function index()
+        {
+            $productModel = new FrontProduct();
+            $products = $productModel->getProducts();
+            require_once __DIR__ . '/../views/front/products/products.php';
+        }
+
+        public function show($id)
+        {
+            $productModel = new FrontProduct();
+            $product = $productModel->getProduct($id);
+            if (!$product) {
+                echo "Product not found.";
+                exit();
+            }
+            require_once __DIR__ . '/../views/front/products/product_details.php';
+        }
     }
-}

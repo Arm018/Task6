@@ -75,6 +75,14 @@ switch ($route) {
         $controller = new FrontProductController();
         $controller->index();
         break;
+    case '/front/products/product_details.php':
+        if (isset($_GET['id'])) {
+            $controller = new FrontProductController();
+            $controller->show($_GET['id']);
+        } else {
+            echo "Product ID not specified.";
+        }
+        break;
 
 
 
