@@ -5,9 +5,10 @@ require_once 'admin/Models/Admin.php';
 require_once 'admin/Controllers/ProductController.php';
 require_once 'admin/Controllers/OrderController.php';
 require_once 'front/Controllers/FrontProductController.php';
-
+require_once 'front/Controllers/FrontOrderController.php';
 use admin\Controllers\AuthController;
-use Controllers\OrderController;
+    use Controllers\FrontOrderController;
+    use Controllers\OrderController;
 use Controllers\ProductController;
 use Controllers\FrontProductController;
 
@@ -83,7 +84,12 @@ switch ($route) {
             echo "Product ID not specified.";
         }
         break;
-
+    case '/front/products/order_confirmation':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller = new FrontOrderController();
+            $controller->processOrder();
+        }
+        break;
 
 
     default:

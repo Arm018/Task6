@@ -19,9 +19,8 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= $product['name']; ?></h5>
                             <p class="card-text">Price: $<?= $product['price']; ?></p>
-                            <a href="product_details.php?id=<?= $product['id']; ?>" class="btn btn-outline-primary">View Details</a>
-                            <a href="checkout.php" class="btn btn-outline-secondary">Order</a>
-                            <button class="btn btn-success add-to-cart" data-id="<?= $product['id']; ?>">Add to Cart</button>
+                            <a href="product_details.php?id=<?= $product['id']; ?>" class="btn btn-outline-info">Order Product</a>
+                            <button class="btn btn-outline-success add-to-cart" data-id="<?= $product['id']; ?>">Add to Cart</button>
                         </div>
                     </div>
                 </div>
