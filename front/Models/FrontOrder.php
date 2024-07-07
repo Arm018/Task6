@@ -19,13 +19,11 @@
                 $stmt->bindParam(2, $date);
                 $stmt->bindParam(3, $total);
                 $stmt->execute();
-                return true;
+                return $this->conn->lastInsertId();
             } catch (\PDOException $e) {
                 echo 'Error: ' . $e->getMessage();
                 return false;
             }
-
-
         }
 
     }
