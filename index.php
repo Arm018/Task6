@@ -6,9 +6,10 @@ require_once 'admin/Controllers/ProductController.php';
 require_once 'admin/Controllers/OrderController.php';
 require_once 'front/Controllers/FrontProductController.php';
 require_once 'front/Controllers/FrontOrderController.php';
+
 use admin\Controllers\AuthController;
-    use Controllers\FrontOrderController;
-    use Controllers\OrderController;
+use Controllers\FrontOrderController;
+use Controllers\OrderController;
 use Controllers\ProductController;
 use Controllers\FrontProductController;
 
