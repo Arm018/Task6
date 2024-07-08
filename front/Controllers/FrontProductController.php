@@ -47,7 +47,7 @@
         public function viewCart()
         {
             session_start();
-            $productModel = new FrontProduct();
+            $productModel = new Product();
             $cart = $_SESSION['cart'] ?? [];
             $cartItems = [];
 
