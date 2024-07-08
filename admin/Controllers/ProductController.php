@@ -1,10 +1,10 @@
 <?php
 
-namespace Controllers;
+namespace admin\Controllers;
 require_once __DIR__ . '/../Models/Product.php';
 require_once 'BaseController.php';
 
-use models\Product;
+use admin\Models\Product;
 
 class ProductController extends BaseController
 {

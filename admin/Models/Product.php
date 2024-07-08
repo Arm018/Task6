@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace admin\Models;
 require_once 'config/connect.php';
 use PDO;
 use config\Database;
@@ -11,8 +11,8 @@ class Product
 
     public function __construct()
     {
-        $db = new Database();
-        $this->conn = $db->connect();
+        $db = Database::getInstance();
+        $this->conn = $db->getConnection();
     }
 
     public function getAllProducts()

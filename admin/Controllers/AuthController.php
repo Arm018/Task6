@@ -1,6 +1,8 @@
 <?php
+
 namespace admin\Controllers;
-use models\Admin;
+use admin\Models\Admin;
+
 class AuthController
 {
 

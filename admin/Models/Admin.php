@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace admin\Models;
 require_once 'config/connect.php';
 
 use config\Database;
@@ -14,8 +14,8 @@ class Admin
 
     public function __construct()
     {
-        $database = new Database();
-        $this->conn = $database->connect();
+        $database = Database::getInstance();
+        $this->conn = $database->getConnection();
     }
 
     public function authenticate($username, $password)

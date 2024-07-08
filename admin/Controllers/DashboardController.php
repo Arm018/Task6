@@ -1,7 +1,5 @@
 <?php
     namespace admin\Controllers;
-    use Controllers\BaseController;
-
     require_once 'BaseController.php';
     class DashboardController extends BaseController
     {

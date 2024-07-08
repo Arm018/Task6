@@ -1,6 +1,6 @@
 <?php
 
-namespace Controllers;
+namespace admin\Controllers;
 
 class BaseController
 {

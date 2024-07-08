@@ -1,20 +1,15 @@
 <?php
 
-require_once 'admin/Controllers/AuthController.php';
-require_once 'admin/Models/Admin.php';
-require_once 'admin/Controllers/ProductController.php';
-require_once 'admin/Controllers/OrderController.php';
-require_once 'front/Controllers/FrontProductController.php';
-require_once 'front/Controllers/FrontOrderController.php';
-require_once 'admin/Controllers/DashboardController.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use admin\Controllers\AuthController;
 use admin\Controllers\DashboardController;
+use admin\Controllers\OrderController;
+use admin\Controllers\ProductController;
+use admin\Models\Admin;
 use Controllers\FrontOrderController;
-use Controllers\OrderController;
-use Controllers\ProductController;
 use Controllers\FrontProductController;
-use models\Admin;
+
 
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $baseUri = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');

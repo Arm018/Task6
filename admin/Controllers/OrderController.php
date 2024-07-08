@@ -1,9 +1,9 @@
 <?php
 
-namespace Controllers;
+namespace admin\Controllers;
 require_once __DIR__ . '/../Models/Order.php';
 require_once 'BaseController.php';
-use models\Order;
+use admin\Models\Order;
 
 class OrderController extends BaseController
 {

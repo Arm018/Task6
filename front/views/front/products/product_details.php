@@ -21,26 +21,31 @@
 
 
 <div class="container mt-5">
+    <?php if (isset($error_message)): ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $error_message ?>
+        </div>
+    <?php endif; ?>
     <h2 class="mb-4">Customer info</h2>
     <form action="order_confirmation" method="POST">
         <div class="form-group">
             <label for="firstname"><strong>First Name:</strong></label>
-            <input type="text" class="form-control" id="firstname" name="firstname" required>
+            <input type="text" class="form-control" id="firstname" name="firstname">
         </div>
 
         <div class="form-group">
             <label for="lastname"><strong>Last Name:</strong></label>
-            <input type="text" class="form-control" id="lastname" name="lastname" required>
+            <input type="text" class="form-control" id="lastname" name="lastname" >
         </div>
 
         <div class="form-group">
             <label for="phone"><strong>Phone:</strong></label>
-            <input type="text" class="form-control" id="phone" name="phone" required>
+            <input type="text" class="form-control" id="phone" name="phone" >
         </div>
 
         <div class="form-group">
             <label for="address"><strong>Address:</strong></label>
-            <textarea class="form-control" id="address" name="address" rows="4" required></textarea>
+            <textarea class="form-control" id="address" name="address" rows="4" ></textarea>
         </div>
         <div class="form-group">
             <input type="hidden" id="product_id" name="product_id" value="<?= $product['id']; ?>">

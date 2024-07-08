@@ -11,8 +11,8 @@
 
         public function __construct()
         {
-            $db = new Database();
-            $this->conn = $db->connect();
+            $db = Database::getInstance();
+            $this->conn = $db->getConnection();
         }
 
         public function insertCustomer($firstName, $lastName, $phone, $address)

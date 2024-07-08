@@ -1,6 +1,6 @@
 <?php
 
-namespace models;
+namespace admin\Models;
 require_once 'config/connect.php';
 use PDO;
 use config\Database;
@@ -10,8 +10,8 @@ class Order
     private $conn;
     public function __construct()
     {
-        $db = new Database();
-        $this->conn = $db->connect();
+        $db = Database::getInstance();
+        $this->conn = $db->getConnection();
     }
 
     public function getAllOrders()
@@ -32,5 +32,19 @@ class Order
 
         $order['items'] = $orderItems;
         return $order;
+    }
+    public function insertOrder($customer_id,$date,$total)
+    {
+        try {
+            $stmt = $this->conn->prepare('INSERT INTO orders (customer_info, order_date, total) VALUES (?, ?, ?)');
+            $stmt->bindParam(1, $customer_id);
+            $stmt->bindParam(2, $date);
+            $stmt->bindParam(3, $total);
+            $stmt->execute();
+            return $this->conn->lastInsertId();
+        } catch (\PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+            return false;
+        }
     }
 }

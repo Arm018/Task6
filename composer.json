@@ -1,0 +1,10 @@
+{
+  "autoload": {
+    "psr-4": {
+      "admin\\Controllers\\": "admin/Controllers/",
+      "admin\\Models\\": "admin/Models/",
+      "Controllers\\": "front/Controllers/",
+      "models\\": "front/Models/"
+    }
+  }
+}
