@@ -9,7 +9,8 @@
 <div class="container">
     <h1 class="my-4 text-center">Manage Products</h1>
     <div class="mb-4 text-center">
-        <a href="/Arman/Task6/admin/create" class="btn btn-success">Create Product</a>
+        <a href="/Arman/Task6/eshop/admin/dashboard" class="btn btn-info">Back to Dashboard</a>
+        <a href="/Arman/Task6/eshop/admin/create" class="btn btn-success">Create Product</a>
     </div>
 
     <div class="row">
@@ -22,7 +23,6 @@
                             <h5 class="card-title"><?= $product['name']; ?></h5>
                             <p class="card-text"><?= $product['description']; ?></p>
                             <p class="card-text">Price: $<?= $product['price']; ?></p>
-                            <!-- Update and Delete Buttons -->
                             <form action="/Arman/Task6/update" method="GET" style="display:inline;">
                                 <input type="hidden" name="id" value="<?= $product['id']; ?>">
                                 <button type="submit" class="btn btn-warning">Update</button>

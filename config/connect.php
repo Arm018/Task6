@@ -13,10 +13,10 @@ use PDO;
 
         public function __construct()
         {
-            $this->localhost = "localhost";
-            $this->user = "root";
-            $this->password = "";
-            $this->db_name = "eshop";
+            $this->localhost = 'localhost';
+            $this->user = 'root';
+            $this->password = '';
+            $this->db_name = 'eshop';
 
         }
         public function connect()
@@ -25,10 +25,10 @@ use PDO;
             try {
                 $conn = new PDO("mysql:host=$this->localhost;dbname=$this->db_name", $this->user, $this->password);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $conn->exec("set names utf8");
+                $conn->exec('set names utf8');
 
             }catch (Exception $e){
-                echo "Connection failed: " . $e->getMessage();
+                echo 'Connection failed: ' . $e->getMessage();
             }
             return $conn;
 

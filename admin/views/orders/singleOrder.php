@@ -16,7 +16,7 @@
             <h3>Customer Information</h3>
         </div>
         <div class="card-body">
-            <p><strong>Name:</strong> <?= $order['customer_info'] ?></p>
+            <p><strong>Customer ID:</strong> <?= $order['customer_info'] ?></p>
             <p><strong>Order Date:</strong> <?= $order['order_date'] ?></p>
             <p><strong>Total Price:</strong> $<?= $order['total'] ?></p>
         </div>
@@ -47,10 +47,8 @@
     </div>
 
     <div class="text-center">
-        <a href="/Arman/Task6/admin/orders/orders.php" class="btn btn-primary">Back to Orders</a>
+        <a href="/Arman/Task6/eshop/admin/orders" class="btn btn-primary">Back to Orders</a>
     </div>
 </div>
-
-
 </body>
 </html>

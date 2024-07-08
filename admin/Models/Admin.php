@@ -2,6 +2,7 @@
 
 namespace models;
 require_once 'config/connect.php';
+
 use config\Database;
 use PDO;
 use PDOException;
@@ -27,7 +28,6 @@ class Admin
 
             return $stmt->fetch(PDO::FETCH_ASSOC) !== false;
         } catch (PDOException $e) {
-            // Handle database connection or query errors
             echo 'Error: ' . $e->getMessage();
             return false;
         }

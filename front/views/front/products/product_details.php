@@ -9,7 +9,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6">
-            <img src="../../<?= $product['image_path']; ?>" style="width: 600px;height: 400px" class="img-fluid" alt="<?= $product['name']; ?>">
+            <img src="<?= $product['image_path']; ?>" style="width: 600px;height: 400px" class="img-fluid" alt="<?= $product['name']; ?>">
         </div>
         <div class="col-md-4">
             <h1><?= $product['name']; ?></h1>
@@ -53,7 +53,7 @@
             <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="1" required>
         </div>
         <button type="submit" class="btn btn-warning mb-1">Order Product</button>
-        <a href="/Arman/Task6/front/products/products.php" class="btn btn-secondary mb-1">Back to Products</a>
+        <a href="/Arman/Task6/products" class="btn btn-secondary mb-1">Back to Products</a>
 
     </form>
 </div>

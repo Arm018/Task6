@@ -10,12 +10,15 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h2 class="text-center">All Orders</h2>
+    <div class="text-center">
+        <h2 class="text-center">All Orders</h2>
+        <a href="/Arman/Task6/eshop/admin/dashboard" class="btn btn-info mt-2 mb-2">Back to Dashboard</a>
+    </div>
     <table class="table table-striped">
         <thead>
         <tr>
             <th>Order ID</th>
-            <th>Customer Name</th>
+            <th>Customer ID</th>
             <th>Order Date</th>
             <th>Total Amount</th>
             <th>Action</th>
@@ -29,7 +32,7 @@
                 <td><?= $order['order_date']; ?></td>
                 <td><?= '$' . number_format($order['total'], 2); ?></td>
                 <td>
-                    <a href="/Arman/Task6/admin/orders/show?id=<?= $order['id']; ?>" class="btn btn-sm btn-primary">View Details</a>
+                    <a href="/Arman/Task6/eshop/admin/orders/show?id=<?= $order['id']; ?>" class="btn btn-sm btn-primary">View Details</a>
                 </td>
             </tr>
         <?php endforeach; ?>

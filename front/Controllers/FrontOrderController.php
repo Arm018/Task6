@@ -1,25 +1,31 @@
 <?php
 
-    namespace Controllers;
+namespace Controllers;
 
-    use FrontOrder;
-    use Models\Customer;
-    use Models\OrderItem;
-    require_once __DIR__. '/../Models/OrderItem.php';
-    require_once __DIR__. '/../Models/Customer.php';
-    require_once __DIR__.'/../Models/FrontOrder.php';
+use FrontOrder;
+use Models\Customer;
+use Models\OrderItem;
 
-    class FrontOrderController
+require_once __DIR__ . '/../Models/OrderItem.php';
+require_once __DIR__ . '/../Models/Customer.php';
+require_once __DIR__ . '/../Models/FrontOrder.php';
+
+class FrontOrderController
+{
+    public function index()
     {
+        require_once __DIR__ . '/../views/front/orders/order_confirmation.php';
+    }
 
-        public function processOrder()
-        {
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $firstName = $_POST['firstname'];
-                $lastName = $_POST['lastname'];
-                $phone = $_POST['phone'];
-                $address = $_POST['address'];
+    public function processOrder()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $firstName = $_POST['firstname'];
+            $lastName = $_POST['lastname'];
+            $phone = $_POST['phone'];
+            $address = $_POST['address'];
 
+            if (!empty($firstName) && !empty($lastName) && !empty($phone) && !empty($address)) {
                 $quantity = $_POST['quantity'];
                 $product_id = $_POST['product_id'];
                 $price = $_POST['price'];
@@ -32,14 +38,14 @@
 
                 if ($customer_id) {
                     $orderObj = new FrontOrder();
-                    $order_id  = $orderObj->insertOrder($customer_id, $date,$total);
+                    $order_id = $orderObj->insertOrder($customer_id, $date, $total);
                     if ($order_id) {
                         $orderItem = new OrderItem();
-                        $orderItemInsert = $orderItem->insertOrderItems($order_id,$product_id, $quantity);
+                        $orderItemInsert = $orderItem->insertOrderItems($order_id, $product_id, $quantity);
                         if ($orderItemInsert) {
-                            header('Location: /Arman/Task6/front/views/front/orders/order_confirmation.php');
+                            header('Location: /Arman/Task6/order_confirmation/success');
                             exit();
-                        } else {
+                        }else {
                             echo 'Error inserting order item';
                         }
                     }else {
@@ -48,9 +54,12 @@
                 }else {
                     echo 'Error inserting customer';
                 }
-            } else {
-                echo 'Error processing order';
+            }else {
+                echo 'All the fields are required';
             }
+        }else {
+            echo 'Error';
         }
     }
+}
 

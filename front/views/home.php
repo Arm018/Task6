@@ -15,16 +15,16 @@
                 <div class="card-body">
                     <h5 class="card-title">Products</h5>
                     <p class="card-text">View and order products from our store.</p>
-                    <a href="front/products/products.php" class="btn btn-primary">View Our Products</a>
+                    <a href="products" class="btn btn-primary">View Our Products</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Ordered Items</h5>
-                    <p class="card-text">View detailed information on order items.</p>
-                    <a href="order_items.php" class="btn btn-primary">View Ordered Items</a>
+                    <h5 class="card-title">Shopping Cart</h5>
+                    <p class="card-text">View Cart Products</p>
+                    <a href="cart" class="btn btn-primary">View Cart Products</a>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@
             <?php foreach ($products as $product): ?>
                 <div class="col-md-4 mb-4">
                     <div class="card" style="width: 340px">
-                        <img src="../../<?= $product['image_path']; ?>" class="card-img-top" alt="<?= $product['name']; ?>" style="height: 300px; object-fit: cover;">
+                        <img src="<?= $product['image_path']; ?>" class="card-img-top" alt="<?= $product['name']; ?>" style="height: 300px; object-fit: cover;">
                         <div class="card-body">
                             <h5 class="card-title"><?= $product['name']; ?></h5>
                             <p class="card-text">Price: $<?= $product['price']; ?></p>
@@ -31,10 +31,23 @@
             </div>
         <?php endif; ?>
     </div>
-
-
 </div>
 
+<script>
+    $(document).ready(function(){
+        $('.add-to-cart').click(function(){
+            var productId = $(this).data('id');
+            $.ajax({
+                url: 'cart/add_to_cart',
+                type: 'POST',
+                data: { id: productId },
+                success: function(response){
+                    alert('The Product has been added to your shopping cart');
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

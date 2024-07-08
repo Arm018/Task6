@@ -15,7 +15,7 @@ class AuthController
             if ($admin->authenticate($username, $password)) {
                 if ($username === 'admin' && $password === 'admin') {
                     $_SESSION['admin_logged_in'] = true;
-                    header('Location: /Arman/Task6/admin/views/dashboard.php');
+                    header('Location: /Arman/Task6/eshop/admin/dashboard');
                     exit;
                 } else {
                     echo 'Invalid credentials';
@@ -28,4 +28,4 @@ class AuthController
         }
     }
 }
-?>
+

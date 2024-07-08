@@ -3,6 +3,7 @@
 namespace Controllers;
 require_once __DIR__ . '/../Models/Product.php';
 require_once 'BaseController.php';
+
 use models\Product;
 
 class ProductController extends BaseController
@@ -23,6 +24,7 @@ class ProductController extends BaseController
     {
         require_once __DIR__ . '/../views/products/product-create.php';
     }
+
     public function store()
     {
         $name = $_POST['name'];
@@ -40,21 +42,23 @@ class ProductController extends BaseController
                 $productModel = new Product();
                 $productModel->insertProduct($name, $description, $price, $uploadDirectory . $imagePath);
 
-                header("Location: /Arman/Task6/admin/products/product.php");
+                header('Location: /Arman/Task6/eshop/admin/products');
                 exit();
-            } else {
-                echo "Failed to move the file.";
+            }else {
+                echo 'Failed to move the file.';
             }
-        } else {
-            echo "All fields are required.";
+        }else {
+            echo 'All fields are required.';
         }
     }
+
     public function edit($id)
     {
         $productModel = new Product();
         $product = $productModel->getProduct($id);
         require_once __DIR__ . '/../views/products/product-update.php';
     }
+
     public function update()
     {
         $id = $_POST['id'];
@@ -69,8 +73,8 @@ class ProductController extends BaseController
 
             if (move_uploaded_file($_FILES['image_path']['tmp_name'], $imagePath)) {
 
-            } else {
-                echo "Failed to move the file.";
+            }else {
+                echo 'Failed to move the file.';
                 exit();
             }
         }
@@ -78,25 +82,22 @@ class ProductController extends BaseController
             $productModel = new Product();
             $productModel->updateProduct($id, $name, $description, $price, $imagePath);
 
-            header("Location: /Arman/Task6/admin/products/product.php");
+            header('Location: /Arman/Task6/eshop/admin/products');
             exit();
         } else {
-            echo "Error: All fields are required.";
+            echo 'Error: All fields are required.';
         }
     }
-
 
 
     public function delete($id)
     {
         $productModel = new Product();
         if ($productModel->deleteProduct($id)) {
-            header("Location: /Arman/Task6/admin/products/product.php");
+            header('Location: /Arman/Task6/eshop/admin/products');
             exit();
-        }else
-        {
-            echo "Error deleting product";
+        } else {
+            echo 'Error deleting product';
         }
     }
-
 }

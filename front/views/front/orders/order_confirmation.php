@@ -13,7 +13,7 @@
     <div class="alert alert-success" role="alert">
         Your order has been placed successfully!
     </div>
-    <a href="/Arman/Task6/front/products/products.php" class="btn btn-primary">Go get other products</a>
+    <a href="/Arman/Task6/products" class="btn btn-primary">Go get other products</a>
 </div>
 
 </body>

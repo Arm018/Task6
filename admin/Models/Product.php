@@ -17,14 +17,14 @@ class Product
 
     public function getAllProducts()
     {
-        $stmt = $this->conn->prepare("SELECT * FROM products");
+        $stmt = $this->conn->prepare('SELECT * FROM products');
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function insertProduct($name, $description, $price, $imagePath)
     {
-        $stmt = $this->conn->prepare("INSERT INTO products (name, description, price, image_path) VALUES (:name, :description, :price, :image_path)");
+        $stmt = $this->conn->prepare('INSERT INTO products (name, description, price, image_path) VALUES (:name, :description, :price, :image_path)');
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':price', $price);
@@ -34,7 +34,7 @@ class Product
     }
     public function getProduct($id)
     {
-        $stmt = $this->conn->prepare("SELECT * FROM products WHERE id = :id");
+        $stmt = $this->conn->prepare('SELECT * FROM products WHERE id = :id');
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -68,9 +68,8 @@ class Product
 
     public function deleteProduct($id)
     {
-        $stmt = $this->conn->prepare("DELETE FROM products WHERE id = :id");
+        $stmt = $this->conn->prepare('DELETE FROM products WHERE id = :id');
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
-
 }
